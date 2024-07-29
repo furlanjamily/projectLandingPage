@@ -8,5 +8,19 @@
   color-scheme:dark;
 }
 
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+
+.slider-container {
+  width: 50%; /* Define a largura como 50% */
+  margin: 0 auto; /* Centraliza o slider */
+  @media (max-width: 600px) {
+    width: 100%; /* Define a largura como 50% */
+  }
+}
+
 
 
