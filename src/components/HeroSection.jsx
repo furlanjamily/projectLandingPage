@@ -6,7 +6,7 @@ import HeroImage from "../assets/heroImage.png";
 const HeroSection = () => {
   return (
     <div>
-      <div className="hidden md:flex flex-col items-center mt-6 lg:mt-20 bg w-full h-full">
+      <div className="hidden lg:flex flex-col items-center mt-20 bg w-full h-full">
         <div className="flex flex-1">
           <div className="">
             <h1 className="flex flex-col text-4xl font-extrabold sm:text-6xl lg:text-7xl text-center tracking-wide">
@@ -38,7 +38,7 @@ const HeroSection = () => {
         </div>
       </div>
 
-      <div className="md:hidden flex flex-col items-center mt-6 lg:mt-20 w-full h-full">
+      <div className="lg:hidden md:flex flex-col items-center mt-6  w-full h-full">
         <div className="flex flex-1 flex-col items-center">
           <h1 className="flex flex-col text-3xl font-extrabold sm:text-5xl lg:text-6xl text-center tracking-wide">
             VITAL FIT
