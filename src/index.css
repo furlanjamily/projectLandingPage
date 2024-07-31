@@ -15,11 +15,18 @@
 
 
 .slider-container {
-  width: 50%; /* Define a largura como 50% */
-  margin: 0 auto; /* Centraliza o slider */
+  width: 50%; 
+  margin: 0 auto; 
   @media (max-width: 600px) {
-    width: 100%; /* Define a largura como 50% */
+    width: 100%; 
   }
+}
+
+.pricing-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100%;
 }
 
 
