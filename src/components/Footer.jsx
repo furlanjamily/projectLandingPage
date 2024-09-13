@@ -1,3 +1,4 @@
+import React from "react";
 import { communityLinks } from "../constants";
 import { MessageCircleMore, Instagram, Facebook, Twitter } from "lucide-react";
 
