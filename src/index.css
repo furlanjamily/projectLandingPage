@@ -1,33 +1,154 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700;1,800;1,900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  font-family: "Poppins", sans-serif;
-  color-scheme:dark;
-}
+@layer base {
+  :root {
+    --brand: #f97316;
+    --brand-light: #fb923c;
+    --brand-dark: #9a3412;
 
-.App {
-  font-family: sans-serif;
-  text-align: center;
-}
+    font-family: "Poppins", sans-serif;
+    color-scheme: dark;
+  }
 
+  body {
+    background-color: #000;
+  }
 
-.slider-container {
-  width: 50%; 
-  margin: 0 auto; 
-  @media (max-width: 600px) {
-    width: 100%; 
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
   }
 }
 
-.pricing-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 100%;
+@layer components {
+  .text-gradient-brand {
+    @apply bg-gradient-to-r from-orange-500 to-orange-800 bg-clip-text text-transparent;
+  }
+
+  /* Hero typography */
+  .hero-title {
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 0.88;
+  }
+
+  .hero-subtitle {
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    line-height: 1.35;
+    color: rgba(255, 255, 255, 0.92);
+  }
+
+  .text-highlight {
+    color: var(--brand-light);
+    text-shadow:
+      0 0 28px rgba(249, 115, 22, 0.55),
+      0 0 60px rgba(234, 88, 12, 0.28);
+  }
+
+  .hero-accent-bar {
+    display: inline-block;
+    width: 3px;
+    min-height: 2.4em;
+    align-self: stretch;
+    flex-shrink: 0;
+    background: linear-gradient(180deg, var(--brand-light) 0%, var(--brand-dark) 100%);
+    box-shadow: 0 0 14px rgba(249, 115, 22, 0.65);
+  }
+
+  /* Call-to-action buttons */
+  .btn-primary,
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #fff;
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease,
+      filter 0.25s ease,
+      border-color 0.25s ease,
+      background 0.25s ease;
+  }
+
+  .btn-primary {
+    padding: 0.78rem 1.6rem;
+    background: linear-gradient(
+      180deg,
+      var(--brand-light) 0%,
+      var(--brand) 42%,
+      var(--brand-dark) 100%
+    );
+    box-shadow:
+      0 0 22px rgba(249, 115, 22, 0.45),
+      0 4px 18px rgba(249, 115, 22, 0.28),
+      inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.06);
+    box-shadow:
+      0 0 34px rgba(249, 115, 22, 0.62),
+      0 8px 26px rgba(249, 115, 22, 0.38),
+      inset 0 1px 0 rgba(255, 255, 255, 0.42);
+  }
+
+  .btn-secondary {
+    padding: 0.76rem 1.55rem;
+    background: transparent;
+    border: 1.5px solid rgba(255, 255, 255, 0.85);
+    box-shadow:
+      0 0 12px rgba(249, 115, 22, 0.15),
+      inset 0 0 0 1px rgba(249, 115, 22, 0.12);
+  }
+
+  .btn-secondary:hover {
+    transform: translateY(-2px);
+    border-color: var(--brand-light);
+    background: rgba(249, 115, 22, 0.12);
+    box-shadow:
+      0 0 24px rgba(249, 115, 22, 0.35),
+      inset 0 0 20px rgba(154, 52, 18, 0.08);
+  }
+
+  .btn-primary:active,
+  .btn-secondary:active {
+    transform: translateY(0);
+  }
 }
 
+/* react-slick carousel overrides (target library-generated markup) */
+.slider-container .slick-slide > div {
+  height: 100%;
+}
 
+.slider-container .slick-dots {
+  bottom: -2rem;
+}
 
+.slider-container .slick-dots li button:before {
+  color: var(--brand-light);
+  opacity: 0.35;
+  font-size: 8px;
+}
+
+.slider-container .slick-dots li.slick-active button:before {
+  opacity: 1;
+  color: var(--brand-light);
+}
