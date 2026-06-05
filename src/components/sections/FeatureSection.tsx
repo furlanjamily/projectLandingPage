@@ -3,8 +3,11 @@ import sectionImage from "../../assets/image_section.png";
 
 const FeatureSection = () => {
   return (
-    <div id="sobre" className="mt-20 w-full">
-      <div className="mt-20 border-b border-neutral-800 min-h-[800px] w-full px-4 sm:px-8">
+    <div
+      id="sobre"
+      className="flex min-h-dvh w-full flex-col justify-center border-b border-neutral-800 px-4 py-16 pb-28 sm:px-8 lg:py-20"
+    >
+      <div className="w-full">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-center gap-12 py-10 lg:flex-row lg:gap-16 lg:py-20">
           <div className="flex w-full justify-center lg:w-1/2">
             <img

@@ -27,7 +27,7 @@ const Testimonials = () => {
   return (
     <section
       id="avaliacoes"
-      className="mt-20 scroll-mt-20 py-8 sm:py-12 lg:py-16 tracking-wide"
+      className="flex min-h-dvh flex-col justify-center py-16 pb-32 sm:py-20 lg:py-16 tracking-wide"
     >
       <h2 className="text-3xl sm:text-5xl lg:text-6xl text-center px-4 sm:px-6 my-6 sm:my-10 lg:my-16">
         O que as pessoas estão dizendo?

@@ -4,7 +4,10 @@ import { advantages } from "../../constants";
 
 const Workflow = () => {
   return (
-    <div id="vantagem" className="pt-9">
+    <div
+      id="vantagem"
+      className="flex min-h-dvh flex-col justify-center py-16 pb-28 lg:py-9"
+    >
       <h2 className="text-3xl sm:text-5xl lg:text-6xl text-center mt-6 tracking-wide">
         Por que{" "}
         <span className="text-gradient-brand">nos escolher?</span>
@@ -17,15 +20,15 @@ const Workflow = () => {
             loop
             muted
             playsInline
-            className="flex rounded-2xl w-full aspect-video object-cover my-8"
+            className="flex rounded-2xl w-full aspect-video object-cover my-6 lg:my-8"
           >
             <source src={vitalClip} type="video/mp4" />
           </video>
         </div>
 
-        <div className="pt-12 w-full lg:w-1/2">
+        <div className="pt-8 w-full lg:w-1/2 lg:pt-12">
           {advantages.map(({ title, description }) => (
-            <div key={title} className="flex mb-12">
+            <div key={title} className="flex mb-8 last:mb-0 lg:mb-12">
               <div className="text-green-400 mx-6 bg-neutral-900 h-10 w-10 p-2 justify-center items-center rounded-full">
                 <CheckCircle2 />
               </div>

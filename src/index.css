@@ -12,17 +12,15 @@
     --brand-light: #fb923c;
     --brand-dark: #9a3412;
 
-    font-family: "Poppins", sans-serif;
     color-scheme: dark;
   }
 
-  body {
-    background-color: #000;
+  html {
+    @apply scroll-smooth;
   }
 
-  html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 5rem;
+  body {
+    @apply bg-black font-sans;
   }
 }
 
@@ -31,105 +29,32 @@
     @apply bg-gradient-to-r from-orange-500 to-orange-800 bg-clip-text text-transparent;
   }
 
-  /* Hero typography */
-  .hero-title {
-    font-family: "Barlow Condensed", sans-serif;
-    font-weight: 900;
-    text-transform: uppercase;
-    line-height: 0.88;
-  }
-
-  .hero-subtitle {
-    font-family: "Barlow Condensed", sans-serif;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    line-height: 1.35;
-    color: rgba(255, 255, 255, 0.92);
-  }
-
+  /* text-shadow has no first-class Tailwind v3 utility, so it stays as CSS */
   .text-highlight {
-    color: var(--brand-light);
+    @apply text-brand-light;
     text-shadow:
       0 0 28px rgba(249, 115, 22, 0.55),
       0 0 60px rgba(234, 88, 12, 0.28);
   }
 
-  .hero-accent-bar {
-    display: inline-block;
-    width: 3px;
-    min-height: 2.4em;
-    align-self: stretch;
-    flex-shrink: 0;
-    background: linear-gradient(180deg, var(--brand-light) 0%, var(--brand-dark) 100%);
-    box-shadow: 0 0 14px rgba(249, 115, 22, 0.65);
+  .nav-link-active {
+    text-shadow:
+      0 0 14px rgba(249, 115, 22, 0.6),
+      0 0 28px rgba(234, 88, 12, 0.35);
   }
 
   /* Call-to-action buttons */
   .btn-primary,
   .btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 9999px;
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: 0.8rem;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: #fff;
-    transition:
-      transform 0.25s ease,
-      box-shadow 0.25s ease,
-      filter 0.25s ease,
-      border-color 0.25s ease,
-      background 0.25s ease;
+    @apply inline-flex items-center justify-center rounded-full font-display text-[0.8rem] font-extrabold uppercase tracking-[0.08em] text-white transition-all duration-[250ms];
   }
 
   .btn-primary {
-    padding: 0.78rem 1.6rem;
-    background: linear-gradient(
-      180deg,
-      var(--brand-light) 0%,
-      var(--brand) 42%,
-      var(--brand-dark) 100%
-    );
-    box-shadow:
-      0 0 22px rgba(249, 115, 22, 0.45),
-      0 4px 18px rgba(249, 115, 22, 0.28),
-      inset 0 1px 0 rgba(255, 255, 255, 0.35);
-  }
-
-  .btn-primary:hover {
-    transform: translateY(-2px);
-    filter: brightness(1.06);
-    box-shadow:
-      0 0 34px rgba(249, 115, 22, 0.62),
-      0 8px 26px rgba(249, 115, 22, 0.38),
-      inset 0 1px 0 rgba(255, 255, 255, 0.42);
+    @apply bg-gradient-to-b from-brand-light via-brand via-[42%] to-brand-dark px-[1.6rem] py-[0.78rem] shadow-btn-primary hover:-translate-y-0.5 hover:brightness-[1.06] hover:shadow-btn-primary-hover active:translate-y-0;
   }
 
   .btn-secondary {
-    padding: 0.76rem 1.55rem;
-    background: transparent;
-    border: 1.5px solid rgba(255, 255, 255, 0.85);
-    box-shadow:
-      0 0 12px rgba(249, 115, 22, 0.15),
-      inset 0 0 0 1px rgba(249, 115, 22, 0.12);
-  }
-
-  .btn-secondary:hover {
-    transform: translateY(-2px);
-    border-color: var(--brand-light);
-    background: rgba(249, 115, 22, 0.12);
-    box-shadow:
-      0 0 24px rgba(249, 115, 22, 0.35),
-      inset 0 0 20px rgba(154, 52, 18, 0.08);
-  }
-
-  .btn-primary:active,
-  .btn-secondary:active {
-    transform: translateY(0);
+    @apply border-[1.5px] border-white/85 bg-transparent px-[1.55rem] py-[0.76rem] shadow-btn-secondary hover:-translate-y-0.5 hover:border-brand-light hover:bg-brand/10 hover:shadow-btn-secondary-hover active:translate-y-0;
   }
 }
 
