@@ -10,8 +10,8 @@ const Workflow = () => {
         <span className="text-gradient-brand">nos escolher?</span>
       </h2>
 
-      <div className="flex flex-wrap pt-6 justify-center">
-        <div className="w-full lg:w-1/2 flex justify-center">
+      <div className="flex flex-wrap pt-6 justify-center align-center">
+        <div className="w-full  lg:w-1/2 flex justify-center items-center">
           <video
             autoPlay
             loop

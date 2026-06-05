@@ -4,7 +4,7 @@ import Button from "../ui/Button";
 
 const Pricing = () => {
   return (
-    <div id="planos" className="mt-20 scroll-mt-20 py-8 sm:py-12">
+    <div id="planos" className="mt-12 scroll-mt-20">
       <h2 className="text-3xl sm:text-5xl lg:text-6xl text-center my-8 tracking-wider">
         Planos disponíveis
       </h2>
