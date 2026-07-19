@@ -1,6 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -20,16 +19,51 @@
   }
 
   body {
-    @apply bg-black font-sans;
+    @apply bg-transparent font-sans text-neutral-100 antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading;
+  }
+}
+
+@layer utilities {
+  .glass-main {
+    background: rgba(10, 10, 10, 0.6) !important;
+    backdrop-filter: blur(16px) saturate(160%);
+    -webkit-backdrop-filter: blur(16px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  .glass-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .glass-hover:hover {
+    border-color: rgba(249, 115, 22, 0.3);
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.5);
+    background: rgba(15, 15, 15, 0.7) !important;
   }
 }
 
 @layer components {
+  .glass-icon-btn {
+    @apply glass-main glass-hover inline-flex h-10 w-10 items-center justify-center rounded-full text-neutral-300;
+  }
+
+  .glass-icon-btn:hover {
+    color: var(--brand-light);
+  }
+
   .text-gradient-brand {
     @apply bg-gradient-to-r from-orange-500 to-orange-800 bg-clip-text text-transparent;
   }
 
-  /* text-shadow has no first-class Tailwind v3 utility, so it stays as CSS */
   .text-highlight {
     @apply text-brand-light;
     text-shadow:
@@ -43,22 +77,21 @@
       0 0 28px rgba(234, 88, 12, 0.35);
   }
 
-  /* Call-to-action buttons */
-  .btn-primary,
-  .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-full font-display text-[0.8rem] font-extrabold uppercase tracking-[0.08em] text-white transition-all duration-[250ms];
+  .brand-wordmark {
+    @apply inline-flex items-baseline leading-none;
   }
 
-  .btn-primary {
-    @apply bg-gradient-to-b from-brand-light via-brand via-[42%] to-brand-dark px-[1.6rem] py-[0.78rem] shadow-btn-primary hover:-translate-y-0.5 hover:brightness-[1.06] hover:shadow-btn-primary-hover active:translate-y-0;
+  .brand-wordmark-script {
+    font-family: Pacifico, cursive;
+    @apply text-brand-light;
   }
 
-  .btn-secondary {
-    @apply border-[1.5px] border-white/85 bg-transparent px-[1.55rem] py-[0.76rem] shadow-btn-secondary hover:-translate-y-0.5 hover:border-brand-light hover:bg-brand/10 hover:shadow-btn-secondary-hover active:translate-y-0;
+  .brand-wordmark-sans {
+    @apply font-sans font-bold tracking-tight text-white;
   }
 }
 
-/* react-slick carousel overrides (target library-generated markup) */
+/* Overrides do react-slick (markup gerada pela lib) */
 .slider-container .slick-slide > div {
   height: 100%;
 }

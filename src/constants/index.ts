@@ -36,16 +36,26 @@ export interface Advantage {
   description: string;
 }
 
-export interface PricingOption {
-  title: string;
-  price: string;
-  features: string[];
-  isPopular?: boolean;
+export interface PlanFeature {
+  text: string;
+  included: boolean;
 }
 
-export interface FooterLink {
-  href: string;
-  label: string;
+export interface GymPlan {
+  id: string;
+  name: string;
+  price: string;
+  period: string;
+  description: string;
+  isFeatured: boolean;
+  badgeText?: string;
+  buttonText: string;
+  features: PlanFeature[];
+}
+
+export interface PricingSectionContent {
+  title: string;
+  subtitle: string;
 }
 
 export interface SocialLink {
@@ -126,46 +136,66 @@ export const advantages: Advantage[] = [
   },
 ];
 
-export const pricingOptions: PricingOption[] = [
+export const pricingSection: PricingSectionContent = {
+  title: "Planos disponíveis",
+  subtitle: "Escolha o plano ideal para elevar sua performance na Vital Fit.",
+};
+
+export const gymPlans: GymPlan[] = [
   {
-    title: "Básico",
-    price: "R$120",
-    features: [
-      "Uso dos principais equipamentos de musculação e cardio",
-      "Participação em aulas em grupo como yoga e pilates",
-      "Acesso às áreas comuns, vestiários e salas de descanso",
-      "Acesso durante horários padrão da academia",
-    ],
-  },
-  {
-    title: "Mensal",
+    id: "mensal",
+    name: "Mensal",
     price: "R$100",
-    isPopular: true,
+    period: "/mês",
+    description: "Flexibilidade total para começar sua jornada fitness.",
+    isFeatured: false,
+    buttonText: "Assinar plano",
     features: [
-      "Inclui todos os benefícios do plano básico",
-      "Participação em aulas especiais e workshops",
-      "Avaliação física para monitorar progresso",
-      "Descontos em suplementos e produtos da loja da academia",
+      { text: "Acesso à musculação e equipamentos de cardio", included: true },
+      { text: "Aulas em grupo (yoga, pilates e funcional)", included: true },
+      { text: "Vestiários, áreas comuns e salas de descanso", included: true },
+      { text: "Acesso em horários padrão da academia", included: true },
+      { text: "Avaliação física periódica", included: false },
+      { text: "Sessões com personal trainer", included: false },
     ],
   },
   {
-    title: "Anual",
+    id: "anual",
+    name: "Anual",
     price: "R$85",
+    period: "/mês",
+    description: "Melhor custo-benefício para quem leva o treino a sério o ano todo.",
+    isFeatured: true,
+    badgeText: "MAIS VENDIDO",
+    buttonText: "Começar agora",
     features: [
-      "Inclui todos os benefícios do plano mensal",
-      "Sessões ilimitadas com personal trainers",
-      "Participação em eventos e programas especiais",
-      "Descontos em taxas de renovação e serviços adicionais",
+      { text: "Todos os benefícios do plano mensal", included: true },
+      { text: "Aulas especiais e workshops exclusivos", included: true },
+      { text: "Avaliação física para acompanhar evolução", included: true },
+      { text: "Descontos em suplementos e produtos da loja", included: true },
+      { text: "Participação em eventos da academia", included: true },
+      { text: "Sessões ilimitadas com personal trainer", included: false },
+    ],
+  },
+  {
+    id: "vital-black",
+    name: "Vital Black",
+    price: "R$120",
+    period: "/mês",
+    description: "Experiência premium com acesso completo e acompanhamento dedicado.",
+    isFeatured: false,
+    buttonText: "Assinar plano",
+    features: [
+      { text: "Todos os benefícios do plano anual", included: true },
+      { text: "Sessões ilimitadas com personal trainers", included: true },
+      { text: "Programas especiais e eventos VIP", included: true },
+      { text: "Descontos em renovação e serviços extras", included: true },
+      { text: "Acesso estendido em horários premium", included: true },
+      { text: "Consultoria nutricional mensal", included: true },
     ],
   },
 ];
 
-export const footerLinks: FooterLink[] = [
-  { href: "#", label: "Eventos" },
-  { href: "#", label: "Encontros" },
-  { href: "#", label: "Colaboradores" },
-  { href: "#", label: "Feed Back" },
-];
 
 export const socialLinks: SocialLink[] = [
   { icon: MessageCircleMore, href: "#", label: "WhatsApp" },

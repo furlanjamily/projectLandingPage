@@ -27,29 +27,29 @@ const Testimonials = () => {
   return (
     <section
       id="avaliacoes"
-      className="flex min-h-dvh flex-col justify-center py-16 pb-32 sm:py-20 lg:py-16 tracking-wide"
+      className="flex min-h-dvh flex-col justify-center py-16 pb-32 tracking-wide sm:py-20 lg:py-16"
     >
-      <h2 className="text-3xl sm:text-5xl lg:text-6xl text-center px-4 sm:px-6 my-6 sm:my-10 lg:my-16">
+      <h2 className="my-6 px-4 text-center font-heading text-3xl tracking-tight sm:my-10 sm:px-6 sm:text-5xl lg:my-16 lg:text-6xl">
         O que as pessoas estão dizendo?
       </h2>
 
-      <div className="slider-container block w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-8 sm:pb-12">
+      <div className="slider-container mx-auto block w-full max-w-6xl px-4 pb-8 sm:px-6 sm:pb-12 lg:px-8">
         <Slider {...sliderSettings}>
           {testimonials.map((testimonial) => (
-            <div key={testimonial.user} className="px-2 sm:px-3 py-2">
-              <div className="h-full flex flex-col items-center text-center rounded-lg p-4 sm:p-6 lg:p-8 text-sm sm:text-base border border-neutral-800 font-thin">
-                <p className="leading-relaxed">{testimonial.text}</p>
-                <div className="flex flex-col mt-6 sm:mt-8 items-center gap-2 sm:gap-3">
+            <div key={testimonial.user} className="px-2 py-2 sm:px-3">
+              <div className="glass-main glass-hover flex h-full flex-col items-center rounded-xl p-4 text-center text-sm font-normal sm:p-6 sm:text-base lg:p-8">
+                <p className="leading-relaxed text-neutral-200">{testimonial.text}</p>
+                <div className="mt-6 flex flex-col items-center gap-2 sm:mt-8 sm:gap-3">
                   <img
-                    className="w-10 h-10 sm:w-12 sm:h-12 shrink-0 rounded-full border border-neutral-300 object-cover"
+                    className="h-10 w-10 shrink-0 rounded-full border border-white/10 object-cover sm:h-12 sm:w-12"
                     src={testimonial.image}
                     alt={testimonial.user}
                   />
                   <div className="min-w-0 text-center">
-                    <h6 className="text-sm sm:text-base font-medium truncate">
+                    <h6 className="truncate text-sm font-semibold sm:text-base">
                       {testimonial.user}
                     </h6>
-                    <span className="block text-xs sm:text-sm font-normal italic text-neutral-500 truncate">
+                    <span className="block truncate text-xs font-normal italic text-neutral-500 sm:text-sm">
                       {testimonial.company}
                     </span>
                   </div>

@@ -1,51 +1,106 @@
-import { CheckCircle2 } from "lucide-react";
-import { pricingOptions } from "../../constants";
+import { Check, X } from "lucide-react";
+import { gymPlans, pricingSection } from "../../constants";
 import Button from "../ui/Button";
 
 const Pricing = () => {
   return (
-    <div
+    <section
       id="planos"
-      className="flex min-h-dvh flex-col justify-center py-16 pb-32 lg:py-20"
+      className="relative flex min-h-dvh flex-col justify-center overflow-hidden py-16 pb-32 lg:py-20"
     >
-      <h2 className="text-3xl sm:text-5xl lg:text-6xl text-center my-4 tracking-wider">
-        Planos disponíveis
-      </h2>
+      <div
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[520px] w-[520px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand/10 blur-[140px]"
+        aria-hidden
+      />
 
-      <div className="flex flex-wrap h-max">
-        {pricingOptions.map((option) => (
-          <div key={option.title} className="w-full sm:w-1/2 lg:w-1/3 p-2">
-            <div className="flex flex-col justify-between min-h-full p-4 sm:p-6 border border-neutral-700 rounded-xl text-sm">
-              <p className="text-2xl mb-3">
-                {option.title}
-                {option.isPopular && (
-                  <span className="bg-gradient-to-r from-orange-500 to-red-400 text-transparent bg-clip-text text-sm ml-2">
-                    (Popular)
-                  </span>
-                )}
-              </p>
-              <p className="mb-4">
-                <span className="text-3xl mr-1">{option.price}</span>
-                <span className="text-neutral-400 text-sm tracking-tight">
-                  /Mês
+      <div className="relative z-10 mx-auto w-full max-w-6xl px-4 sm:px-6">
+        <header className="mb-10 text-center md:mb-14">
+          <h2 className="font-heading text-3xl tracking-tight sm:text-5xl lg:text-6xl">
+            {pricingSection.title}
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-sm text-neutral-400 sm:text-base">
+            {pricingSection.subtitle}
+          </p>
+        </header>
+
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-5 lg:gap-6">
+          {gymPlans.map((plan) => (
+            <article
+              key={plan.id}
+              className={`relative flex min-h-full flex-col ${
+                plan.isFeatured ? "md:-mt-2 md:mb-2" : ""
+              }`}
+            >
+              {plan.isFeatured && plan.badgeText && (
+                <span className="absolute -top-3 left-1/2 z-20 -translate-x-1/2 whitespace-nowrap rounded-full border border-brand/30 bg-brand px-4 py-1 text-[0.65rem] font-bold uppercase tracking-[0.12em] text-white shadow-[0_0_24px_rgba(249,115,22,0.35)]">
+                  {plan.badgeText}
                 </span>
-              </p>
-              <ul>
-                {option.features.map((feature) => (
-                  <li key={feature} className="mt-3 flex items-start gap-2">
-                    <CheckCircle2 className="size-4 shrink-0 mt-0.5" />
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              <Button href="#" variant="outline" className="mt-8">
-                Assinar
-              </Button>
-            </div>
-          </div>
-        ))}
+              )}
+
+              <div
+                className={`glass-main glass-hover flex min-h-full flex-col rounded-2xl p-5 sm:p-6 ${
+                  plan.isFeatured
+                    ? "border-brand/40 pt-8 shadow-[0_0_50px_rgba(249,115,22,0.12)]"
+                    : ""
+                }`}
+              >
+                <div className="mb-6">
+                  <h3 className="font-heading text-xl font-semibold text-white sm:text-2xl">
+                    {plan.name}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-neutral-400">
+                    {plan.description}
+                  </p>
+                </div>
+
+                <div className="mb-6 flex items-end gap-1">
+                  <span className="font-heading text-4xl font-bold tracking-tight text-white">
+                    {plan.price}
+                  </span>
+                  <span className="mb-1 text-sm text-neutral-500">{plan.period}</span>
+                </div>
+
+                <ul className="mb-8 flex flex-1 flex-col gap-3">
+                  {plan.features.map((feature) => (
+                    <li key={feature.text} className="flex items-start gap-2.5">
+                      {feature.included ? (
+                        <Check
+                          className="mt-0.5 size-4 shrink-0 text-brand"
+                          aria-hidden
+                        />
+                      ) : (
+                        <X
+                          className="mt-0.5 size-4 shrink-0 text-zinc-600"
+                          aria-hidden
+                        />
+                      )}
+                      <span
+                        className={`text-sm leading-snug ${
+                          feature.included
+                            ? "text-neutral-300"
+                            : "text-zinc-600 line-through"
+                        }`}
+                      >
+                        {feature.text}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+
+                <Button
+                  href="#contato"
+                  variant={plan.isFeatured ? "primary" : "glass"}
+                  fullWidth
+                  size="md"
+                >
+                  {plan.buttonText}
+                </Button>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

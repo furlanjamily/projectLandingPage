@@ -4,9 +4,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Poppins", "sans-serif"],
-        heading: ["Montserrat", "sans-serif"],
-        display: ['"Barlow Condensed"', "sans-serif"],
+        sans: ["Inter", "system-ui", "sans-serif"],
+        heading: ["Inter", "system-ui", "sans-serif"],
+        display: ["Inter", "system-ui", "sans-serif"],
       },
       colors: {
         brand: {
@@ -20,10 +20,6 @@ export default {
           "0 0 22px rgba(249, 115, 22, 0.45), 0 4px 18px rgba(249, 115, 22, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.35)",
         "btn-primary-hover":
           "0 0 34px rgba(249, 115, 22, 0.62), 0 8px 26px rgba(249, 115, 22, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.42)",
-        "btn-secondary":
-          "0 0 12px rgba(249, 115, 22, 0.15), inset 0 0 0 1px rgba(249, 115, 22, 0.12)",
-        "btn-secondary-hover":
-          "0 0 24px rgba(249, 115, 22, 0.35), inset 0 0 20px rgba(154, 52, 18, 0.08)",
       },
       keyframes: {
         "nav-border-glow": {

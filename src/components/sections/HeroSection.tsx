@@ -32,11 +32,12 @@ const HeroSection = () => {
         <BackgroundVideo className="absolute inset-0 z-0 h-full w-full min-h-full min-w-full object-cover object-center" />
 
 
-        <div className="relative z-20 flex h-full min-h-0 w-full items-center justify-start pt-20 pb-6 pl-6 pr-4 sm:pl-8 sm:pr-6 lg:pl-10 lg:pr-12 xl:pl-14 xl:pr-16">
+        <div className="relative z-20 flex h-full min-h-0 w-full items-center justify-start px-4 pb-6 pl-6 pt-8 sm:pl-8 sm:pr-6 sm:pt-10 lg:pl-10 lg:pr-12 lg:pt-20 xl:pl-14 xl:pr-16">
           <div className="flex w-full max-w-[18rem] shrink-0 flex-col justify-center text-left sm:max-w-[min(80vw,430px)] lg:max-w-[min(32vw,400px)] xl:max-w-[min(28vw,460px)]">
             <h2 className="font-display font-black uppercase leading-[0.88] text-[clamp(2.5rem,7vw,4.5rem)] text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.65)]">
               <span className="block">Eleve sua</span>
-              <span className="block">jornada na</span>
+              {/* Espaço inseparável mantém "jornada" e "na" sempre na mesma linha */}
+              <span className="block">jornada{"\u00A0"}na</span>
               <span className="block">
                 <span className="text-highlight">musculação</span>
               </span>
